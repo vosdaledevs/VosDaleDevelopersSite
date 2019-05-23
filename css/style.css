@@ -1,7 +1,27 @@
+:root{
+  /* Background color's */
+  --primary: #4169E1;
+  --primary-variant: #004BBD;
+  --primary--alpha: rgba(65, 105, 225, .25);
+  --primary-variant--alpha: rgba(0, 75, 189, .4);
+  --secondary: #fff;
+  --secondary-variant: #e9f1f7;
+
+  /* Text color's */
+  --text: #333;
+  --text-secondary: var(--primary);
+
+  /* Other rules */
+  --bg-color: #ebebeb;
+  --border-radius: 7px;
+  --box-shadow: 0 0 15px -3px #c0c0c0;
+}
+
 html{
   box-sizing: border-box;
   font-family: GoogleSans;
   font-size: 16px;
+  line-height: 1.5;
 }
 
 *, *::before, *::after{
@@ -12,4 +32,66 @@ html{
 
 body{
   min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+a{
+  text-decoration: none;
+}
+
+img{
+  display: block;
+}
+
+
+/* page-header style's */
+.page-header{
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: .75rem;
+  left: .75rem;
+  width: calc(100vw - 1.5rem);
+  border-radius: var(--border-radius);
+  background-color: var(--secondary);
+  box-shadow: var(--box-shadow);
+}
+
+.page-header--logo{
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.page-header--navbar{
+  display: flex;
+  justify-content: space-evenly;
+  width: 35vw;
+}
+
+.navbar--item{
+  display: block;
+  position: relative;
+  padding: .45rem;
+  color: var(--text);
+  overflow: hidden;
+}
+
+.navbar--item:before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  background-color: var(--text-secondary);
+  transform: scale(0);
+  transform-origin: center;
+  transition: transform .20s;
+}
+.navbar--item.active, .navbar--item:hover{
+  color: var(--text-secondary);
+}
+.navbar--item.active:before, .navbar--item:hover:before{
+  transform: scale(1);
 }
