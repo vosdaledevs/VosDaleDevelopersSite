@@ -55,6 +55,7 @@ img{
   border-radius: var(--border-radius);
   background-color: var(--secondary);
   box-shadow: var(--box-shadow);
+  z-index: 1000;
 }
 
 .page-header--logo{
@@ -96,8 +97,61 @@ img{
   transform: scale(1);
 }
 
-.page-content{
-  min-height: 100vh;
-  background: url('../img/backgroundBanner.png') no-repeat;
+.page-content--banner{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url("../img/backgroundBanner.svg") no-repeat, url("../img/background.jpg") no-repeat;
   background-size: cover;
+  color: var(--secondary);
+}
+.banner-title{
+  font-size: 5rem;
+  transform: translateX(-25%);
+  animation: bannerTitleAnimation backwards 1.25s;
+}
+@keyframes bannerTitleAnimation {
+  from{ transform: translateX(-100%) }
+  90%{ transform: translateX(-15%); }
+}
+.banner-subtitle{
+  font-size: 2.5rem;
+  transform: translateX(25%);
+  animation: bannerSubtitleAnimation 1.25s;
+}
+@keyframes bannerSubtitleAnimation {
+  from{ transform: translateX(100%) }
+  90%{ transform: translateX(15%); }
+}
+.banner-title, .banner-subtitle{
+  text-shadow: 3px 3px rgba(0, 0, 0, .35);
+}
+.banner-tooltip{
+  position: absolute;
+  top: 30%;
+  left: 55%;
+  width: 250px;
+  background-color: var(--primary);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  text-align: center;
+  animation: bannerTooltipAnimation .4s 1.25s forwards;
+  transform: scale3d(1, 0, 1) rotate3d(0, 1, 0, 20deg);
+  transform-origin: bottom;
+}
+.banner-tooltip:before{
+  content: "";
+  position: absolute;
+  bottom: -22px;
+  left: 40%;
+  width: 25px;
+  height: 25px;
+  background-color: inherit;
+  transform: rotate(45deg) translateY(-50%);
+}
+@keyframes bannerTooltipAnimation {
+  to{ transform: scale3d(1, 1, 1) rotate(20deg); }
 }
