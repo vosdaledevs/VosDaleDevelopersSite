@@ -8,6 +8,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="Harold Espinoza | haroldesptru@gmail.com">
+  <meta name="description" content="Sitio web de VosDaleDevelopers">
   <title>Vos Dale Developers</title>
   <!-- Declaraciópn de manifest -->
   <link rel="manifest" href="./manifest.json">
@@ -48,20 +50,35 @@
   <header class="page-header">
     <img src="./img/Logo.svg" alt="Vosdale logo" class="page-header--logo">
     <nav class="page-header--navbar">
-      <a class="navbar--item active" href="/" page-target="/">Inicio</a>
-      <a class="navbar--item" href="/" page-target="/servicios">Servicios</a>
-      <a class="navbar--item" href="/" page-target="/equipo">Equipo</a>
-      <a class="navbar--item" href="/" page-target="/acerca">Acerca</a>
+      <a class="navbar--item active" href="/" page-target="/" page-component="Home">Inicio</a>
+      <a class="navbar--item" href="/" page-target="/servicios" page-component="Services">Servicios</a>
+      <a class="navbar--item" href="/" page-target="/equipo" page-component="Team">Equipo</a>
+      <a class="navbar--item" href="/" page-target="/acerca" page-component="About">Acerca</a>
     </nav>
   </header>
 
-  <main id="page-content" class="page-content">
+  <main id="page-content" class="page-content"></main>
+
+  <!-- Home template -->
+  <template id="component__home">
     <section class="page-content--banner">
       <p class="banner-title">VOS DALE</p>
       <p class="banner-subtitle">DEVELOPERS</p>
       <p class="banner-tooltip">Si lo tenés en mente, "Vos Dale" y nosotros lo hacemos.</p>
     </section>
-  </main>
+  </template>
+
+  <template id="component__services">
+    <h1>Servicos component</h1>
+  </template>
+
+  <template id="component__team">
+    <h1>Equipo component</h1>
+  </template>
+
+  <template id="component__about">
+    <h1>Acerca component</h1>
+  </template>
 
   <script src="./js/main.js"></script>
 </body>
