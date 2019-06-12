@@ -50,8 +50,8 @@ img{
   justify-content: space-between;
   position: fixed;
   top: .75rem;
-  left: .75rem;
-  width: calc(100vw - 1.5rem);
+  right: .75rem;
+  width: calc(35vw - 1.5rem);
   border-radius: var(--border-radius);
   background-color: var(--secondary);
   box-shadow: var(--box-shadow);
@@ -59,8 +59,18 @@ img{
 }
 
 .page-header--logo{
-  width: 2.4rem;
-  height: 2.4rem;
+  position: absolute;
+  top: 50%;
+  left: 5rem;
+  width: 27rem;
+  height: 27rem;
+  transform: translate3d(0, calc(-50% - 1.5rem), 0);
+  z-index: 100;
+  animation: LogoAnimation 1.5s;
+}
+@keyframes LogoAnimation{
+  from{ opacity: 0; }
+  to{ opacity: 1; }
 }
 
 .page-header--navbar{
@@ -110,21 +120,21 @@ img{
 }
 .banner-title{
   font-size: 5rem;
-  transform: translateX(-25%);
+  transform: translate3d(calc(-25% + 5rem), 0, 0);
   animation: bannerTitleAnimation backwards 1.25s;
 }
 @keyframes bannerTitleAnimation {
-  from{ transform: translateX(-100%) }
-  90%{ transform: translateX(-15%); }
+  from{ transform: translate3d(calc(-100% + 5rem), 0, 0); }
+  90%{ transform: translate3d(calc(-15% + 5rem), 0, 0); }
 }
 .banner-subtitle{
   font-size: 2.5rem;
-  transform: translateX(25%);
+  transform: translate3d(calc(25% + 5rem), 0, 0);
   animation: bannerSubtitleAnimation 1.25s;
 }
 @keyframes bannerSubtitleAnimation {
-  from{ transform: translateX(100%) }
-  90%{ transform: translateX(15%); }
+  from{ transform: translate3d(calc(100% + 5rem), 0, 0); }
+  90%{ transform: translate3d(calc(15% + 5rem), 0, 0); }
 }
 .banner-title, .banner-subtitle{
   text-shadow: 3px 3px rgba(0, 0, 0, .35);
@@ -132,7 +142,7 @@ img{
 .banner-tooltip{
   position: absolute;
   top: 30%;
-  left: 55%;
+  left: calc(55% + 5rem);
   width: 250px;
   background-color: var(--primary);
   border-radius: var(--border-radius);
