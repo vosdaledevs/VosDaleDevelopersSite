@@ -43,8 +43,28 @@ if(navbarItems){
 }
 
 (function(){
-  console.log('auto, '+window.location.href);
+
   if([window.location.origin, window.location.origin+'/'].includes(window.location.href)){
     rootComponent.innerHTML = routes['/'];
+  }else{
+    let cookies = null;
+
+    // getting the URL to access from cookie 'path'
+    if(document.cookie){
+      cookies = document.cookie
+        .split(";")
+        .map(item => item.split("="))
+        .reduce((prev,cur) => { prev[cur[0]] = cur[1].split('%2F').join('/'); return prev; },{});
+    }
+
+    console.log(cookies);
+    document.querySelector('.navbar--item.active').classList.remove('active');
+    if(cookies['path'] !== '404') {
+      rootComponent.innerHTML = routes[cookies['path']];
+      document.querySelector(`.navbar--item[page-target="${cookies['path']}"]`).classList.add('active');
+    }else{
+      rootComponent.innerHTML = "Error 404; Page not found";
+    }
   }
+
 })();
