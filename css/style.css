@@ -18,6 +18,8 @@
 }
 
 html{
+  width: 100vw;
+  overflow-x: hidden;
   box-sizing: border-box;
   font-family: GoogleSans;
   font-size: 16px;
@@ -50,33 +52,33 @@ img{
   justify-content: space-between;
   position: fixed;
   top: .75rem;
-  right: .75rem;
-  width: calc(35vw - 1.5rem);
-  border-radius: var(--border-radius);
-  background-color: var(--secondary);
-  box-shadow: var(--box-shadow);
+  left: 1.5rem;
+  width: calc(100vw - 3rem);
   z-index: 1000;
 }
 
 .page-header--logo{
-  position: absolute;
-  top: 50%;
-  left: 5rem;
-  width: 27rem;
-  height: 27rem;
-  transform: translate3d(0, calc(-50% - 1.5rem), 0);
-  z-index: 100;
-  animation: LogoAnimation 1.5s;
+  width: 3.4rem;
+  height: 3.4rem;
+  object-fit: cover;
+  border-radius: 100px;
+  background-color: var(--secondary);
+  box-shadow: var(--box-shadow);
+  transform: translate(-200%, -0.4rem);
+  transition: transform .75s;
 }
-@keyframes LogoAnimation{
-  from{ opacity: 0; }
-  to{ opacity: 1; }
+.page-header--logo.show {
+  transform: translate(0, -0.4rem);
 }
 
 .page-header--navbar{
   display: flex;
   justify-content: space-evenly;
   width: 35vw;
+  height: 2.4rem;
+  border-radius: var(--border-radius);
+  background-color: var(--secondary);
+  box-shadow: var(--box-shadow);
 }
 
 .navbar--item{
@@ -113,10 +115,24 @@ img{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw;
   height: 100vh;
-  background: url("../img/backgroundBanner.svg") no-repeat, url("../img/background.jpg") no-repeat;
-  background-size: cover;
   color: var(--secondary);
+}
+.banner-background{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.logo-lema{
+  top: 50%;
+  left: 50%;
+  width: 65vw;
+  height: 28vw;
+  transform: translate(-50%, -50%);
 }
 .banner-title{
   font-size: 5rem;
@@ -165,3 +181,21 @@ img{
 @keyframes bannerTooltipAnimation {
   to{ transform: scale3d(1, 1, 1) rotate(20deg); }
 }
+
+
+/* Footer Style */
+.footer-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+  padding: 1.5rem;
+}
+.footer--section{
+  display: flex;
+  flex-direction: column;
+}
+
+/* Class Utilities */
+.z-index-100{ z-index: 100; }

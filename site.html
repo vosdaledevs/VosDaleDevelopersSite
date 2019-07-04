@@ -48,6 +48,7 @@
 </head>
 <body>
   <header class="page-header">
+    <img class="page-header--logo" src="./img/Logo.svg" id="icon-logo">
     <nav class="page-header--navbar">
       <a class="navbar--item active" href="/" page-target="/" page-component="Home">Inicio</a>
       <a class="navbar--item" href="/" page-target="/servicios" page-component="Services">Servicios</a>
@@ -60,10 +61,10 @@
 
   <!-- Home template -->
   <template id="component__home">
-    <img src="./img/Logo.png" alt="Vosdale logo" class="page-header--logo">
     <section class="page-content--banner">
-      <p class="banner-title">VOS DALE</p>
-      <p class="banner-subtitle">DEVELOPERS</p>
+      <img class="banner-background" src="./img/background.jpg">
+      <img class="banner-background" src="./img/backgroundBanner.svg">
+      <img class="banner-background logo-lema" src="./img/LogoLema.svg">
       <p class="banner-tooltip">Si lo tenés en mente, "Vos Dale" y nosotros lo hacemos.</p>
     </section>
   </template>
@@ -79,6 +80,34 @@
   <template id="component__about">
     <h1>Acerca component</h1>
   </template>
+
+  
+  <footer class="footer-content">
+    <div class=footer--section>
+      <h3>VOS DALE DEVELOPERS</h3>
+      <p>&copy; Copyright 2019 - Vos Dale Developers</p>
+    </div>
+
+    <div class="footer--section">
+      <a class="footer-navbar-item" href="/" page-target="/" page-component="Home">Inicio</a>
+      <a class="footer-navbar-item" href="/" page-target="/servicios" page-component="Services">Servicios</a>
+      <a class="footer-navbar-item" href="/" page-target="/equipo" page-component="Team">Equipo</a>
+      <a class="footer-navbar-item" href="/" page-target="/acerca" page-component="About">Acerca</a>
+    </div>
+
+    <div class="footer--section">
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+    </div>
+
+    <div class="footer--section">
+      <p>dirección</p>
+      <p>vosdaledevs@gmail.com</p>
+      <p>(+505) 89848765</p>
+    </div>
+  </footer>
+
 
   <script src="./js/main.js"></script>
   

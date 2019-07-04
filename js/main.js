@@ -1,7 +1,28 @@
 const routes = {};
 
 const navbarItems = document.querySelectorAll('.navbar--item'),
+      footerNavbarItems = document.querySelectorAll('.footer-navbar-item'),
       rootComponent = document.getElementById('page-content');
+
+
+function showIconLogo(pathName){
+  (pathName === "/") ? document.getElementById('icon-logo').classList.remove("show") : document.getElementById('icon-logo').classList.add("show");
+}
+
+function changeRouter(e){
+  /* Router code for change pages */
+  let pathName = e.target.getAttribute('page-target'); // get route target
+
+  showIconLogo(pathName);
+  rootComponent.innerHTML = routes[pathName]; // loading component to main container
+
+  window.history.pushState(
+    {},
+    (pathName === '/') ? 'Inicio' : pathName,
+    window.location.origin + pathName
+  );
+}
+
 
 if(navbarItems){
   navbarItems.forEach(item => {
@@ -24,23 +45,27 @@ if(navbarItems){
       const prev = document.querySelector('.navbar--item.active'),
             next = e.target;
 
-      prev.classList.remove('active');
-      next.classList.add('active');
+      if(prev){
+        prev.classList.remove('active');
+        next.classList.add('active');
+      }
+
       e.preventDefault();
-
-      /* Router code for change pages */
-      let pathName = next.getAttribute('page-target'); // get route target
-
-      rootComponent.innerHTML = routes[pathName]; // loading component to main container
-
-      window.history.pushState(
-        {},
-        (pathName === '/') ? 'Inicio' : pathName,
-        window.location.origin + pathName
-      );
+      changeRouter(e);
     });
   });
 }
+
+
+if(footerNavbarItems){
+  footerNavbarItems.forEach(item => {
+    item.addEventListener('click', e => {
+      e.preventDefault();
+      changeRouter(e);
+    });
+  });
+}
+
 
 (function(){
 
@@ -55,6 +80,8 @@ if(navbarItems){
         .split(";")
         .map(item => item.split("="))
         .reduce((prev,cur) => { prev[cur[0]] = cur[1].split('%2F').join('/'); return prev; },{});
+    }else{
+      cookies = { path: '/' }
     }
 
     console.log(cookies);
@@ -65,6 +92,8 @@ if(navbarItems){
     }else{
       rootComponent.innerHTML = "Error 404; Page not found";
     }
+
+    showIconLogo(cookies['path']);
   }
 
 })();
