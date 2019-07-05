@@ -14,6 +14,7 @@ function changeRouter(e){
   let pathName = e.target.getAttribute('page-target'); // get route target
 
   showIconLogo(pathName);
+  window.scrollTo({top: 0, behavior: 'smooth'});
   rootComponent.innerHTML = routes[pathName]; // loading component to main container
 
   window.history.pushState(

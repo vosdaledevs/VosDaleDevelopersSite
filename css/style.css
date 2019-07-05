@@ -12,7 +12,7 @@
   --text-secondary: var(--primary);
 
   /* Other rules */
-  --bg-color: #ebebeb;
+  --bg-color: #F8F8F8;
   --border-radius: 7px;
   --border-radius-big: 20px;
   --border-radius-round: 100px;
@@ -214,6 +214,8 @@ img{
   position: relative;
   width: 100vw;
   height: 35vh;
+  background: url("../img/background-section.png") no-repeat;
+  background-size: cover;
 }
 .header-section-page--background{
   position: absolute;
@@ -243,8 +245,10 @@ img{
 .card{
   --padding-img: 6rem;
   --translate-value: 75px;
+  --padding-top-bottom: 1rem;
+  --padding-left-right: 2rem;
   position: relative;
-  padding: 1rem 2rem;
+  padding: var(--padding-top-bottom) var(--padding-left-right);
   width: 50vw;
   margin-bottom: 3rem;
   text-align: center;
@@ -260,20 +264,61 @@ img{
   padding-left: var(--padding-img); 
   transform: translateX(-var(--translate-value));
 }
+.card-title{
+  margin-bottom: 1.25rem;
+}
 .card-img{
   position: absolute;
-  top: 0;
-  height: 100%;
+  top: 50%;
+  height: calc(5rem + 15px);
+  padding: 15px;
+  background-color: var(--secondary);
   border-radius: var(--border-radius-round);
   box-shadow: var(--box-shadow);
 }
 .card:nth-child(odd) .card-img{ 
   right: 0;
-  transform: translateX(50%) scale(1.1);
+  transform: translate(50%, -50%) scale(1.1);
 }
 .card:nth-child(even) .card-img{
   left: 0;
-  transform: translateX(-50%) scale(1.1);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+
+.team-card{
+  --padding-img: 0;
+  --translate-value: 0;
+  margin-bottom: 7rem;
+}
+.team-card:nth-child(odd), .team-card:nth-child(even){
+  padding: 1rem 7rem 4rem 7rem;
+  transform: translate(0);
+}
+.team-card:first-child{ margin-top: 7rem; }
+.team-card .card-img{
+  top: 0;
+  left: 1rem;
+  transform: translate(0, -50%);
+  border: 7.5px solid var(--bg-color);
+  padding: 0;
+  box-shadow: none;
+}
+.team-card:nth-child(odd) .card-img, .team-card:nth-child(even) .card-img{
+  left: 0;
+  transform: translate(50%, -50%) scale(1.5);
+}
+.team-card .social-bar{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  bottom: 1rem;
+  right: 1rem;
+  width: 9rem;
+}
+.social--item{
+  height: 1.75rem;
 }
 
 
