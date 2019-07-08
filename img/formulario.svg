@@ -1,0 +1,31 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 995 922.33">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1c71e6;
+      }
+
+      .cls-2 {
+        fill: #ffe44b;
+      }
+
+      .cls-3 {
+        fill: #1b519e;
+      }
+
+      .cls-4 {
+        fill: #002f73;
+      }
+    </style>
+  </defs>
+  <title>formulario</title>
+  <g>
+    <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-1" cx="225" cy="225.33" r="225"/>
+    <ellipse id="Ellipse_6" data-name="Ellipse 6" class="cls-2" cx="790" cy="302.33" rx="190" ry="180"/>
+    <ellipse id="Ellipse_7" data-name="Ellipse 7" class="cls-2" cx="410" cy="742.33" rx="190" ry="180"/>
+    <path id="Path_13" data-name="Path 13" class="cls-3" d="M631.5,528.84a125,125,0,1,1-125,125A125,125,0,0,1,631.5,528.84Z" transform="translate(-462.5 -78.84)"/>
+    <path id="Path_14" data-name="Path 14" class="cls-3" d="M1162.5,78.84a125,125,0,1,1-125,125A125,125,0,0,1,1162.5,78.84Z" transform="translate(-462.5 -78.84)"/>
+    <circle id="Ellipse_5" data-name="Ellipse 5" class="cls-1" cx="735" cy="625" r="260"/>
+    <path id="Path_12" data-name="Path 12" class="cls-4" d="M954.5,123.84c207.11,0,375,167.89,375,375s-167.89,375-375,375-375-167.9-375-375S747.39,123.84,954.5,123.84Z" transform="translate(-462.5 -78.84)"/>
+  </g>
+</svg>
