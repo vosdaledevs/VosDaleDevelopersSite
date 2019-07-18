@@ -43,6 +43,7 @@
   <meta property="og:url" content="http://vosdaledevelopers.com/">
   <!-- Stylesheet's -->
   <link rel="shortcut icon" href="./favicon.ico">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/GoogleSans.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -62,26 +63,28 @@
   <!-- Home template -->
   <template id="component__home">
     <section class="page-content--banner">
-      <img class="banner-background" src="./img/background.jpg">
-      <img class="banner-background" src="./img/backgroundBanner.svg">
+      <img class="banner-background" src="./img/background.png">
       <img class="banner-background logo-lema" src="./img/LogoLema.svg">
       <p class="banner-tooltip">Si lo tenés en mente, "Vos Dale" y nosotros lo hacemos.</p>
     </section>
 
     <section class="section-center content-section-page">
-      <form action="#" method="post" class="form">
+      <form action="#" method="post" class="question-form">
+        <img class="question-form--background" src="./img/formulario.svg" alt="">
         <h2 class="form-name">¿Preguntas?</h2>
         <h3 class="form-name mb-2">¡Vos Dale!</h3>
 
         <fieldset class="form-field-container">
           <label class="form-field-container--label" for="question-textfield">Envíanos tu pregunta</label>
-          <textarea class="form-field-container--field" name="question" id="question-textfield" cols="20" rows="10"></textarea>
+          <textarea class="form-field-container--field" name="question" id="question-textfield" cols="10" rows="5" maxlength="255" wrap="soft" ></textarea>
         </fieldset>
 
         <fieldset class="form-field-container">
           <label class="form-field-container--label" for="email-textfield">¿A qué correo quieres que enviemos la respuesta?</label>
           <input class="form-field-container--field" type="email" name="email" id="email-textfield">
         </fieldset>
+
+        <input type="submit" value="Enviar">
       </form>
     </section>
   </template>
@@ -177,7 +180,8 @@
       <div class="card team-card">
         <h2 class="card-title">Leonardo Juárez</h2>
         <p class="card-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque blanditiis eius est illo itaque nisi, ut velit! Accusantium asperiores blanditiis dolor dolorum illum ipsum maiores nam nulla perferendis quo quos, recusandae sint voluptatum. Blanditiis deserunt eaque eveniet fuga laborum magnam natus nostrum perferendis quam rem, repellat soluta tenetur. Molestiae.
+          Soy persona de alta expectativa, capaz de desarrollar lo que se propone, con un alto nivel de aprendizaje,tendiendo
+          siempre en cuenta una visión de superación. Me gusta practicar Futbol y Basketball y tambien soy fanatico de los videojuegos.
         </p>
         <img src="./img/team/blank.png" alt="" class="card-img">
         <div class="social-bar">
@@ -191,7 +195,7 @@
       <div class="card team-card">
         <h2 class="card-title">Kevin Díaz</h2>
         <p class="card-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque blanditiis eius est illo itaque nisi, ut velit! Accusantium asperiores blanditiis dolor dolorum illum ipsum maiores nam nulla perferendis quo quos, recusandae sint voluptatum. Blanditiis deserunt eaque eveniet fuga laborum magnam natus nostrum perferendis quam rem, repellat soluta tenetur. Molestiae.
+          Me considero una persona emprendedora, creativa, y decidida por crear un cambio positivo en mi país que inspire a otros a hacer lo mismo.
         </p>
         <img src="./img/team/blank.png" alt="" class="card-img">
         <div class="social-bar">
@@ -209,42 +213,48 @@
       <p class="header-section-page--title">¿Quiéres saber más sobre nosotros?</p>
     </section>
 
-    <section class="content-section-page">
-      <div class="card">
+    <section class="content-section-page about">
+      <div class="card about--card">
         <h2 class="card-title">Misión</h2>
         <p class="card-content">
           Somos una empresa desarrolladora de software, cuyo objetivo es la automatización y optimización de sistemas y procesos en las empresas nicaragüenses para potenciar su desarrollo a través de aplicaciones móviles y sistemas web.
         </p>
+        <img src="./img/illustration-1.png" alt="" class="card-img about--card-img">
       </div>
 
-      <div class="card">
+      <div class="card about--card">
         <h2 class="card-title">Visión</h2>
         <p class="card-content">
           Ser una empresa líder y revolucionaria en servicios de desarrollo y soporte al sector empresarial nicaragüenses mediante la implementación de soluciones tecnológicas.
         </p>
+        <img src="./img/illustration-2.png" alt="" class="card-img about--card-img">
       </div>
 
-      <div class="card">
+      <div class="card about--card">
         <h2 class="card-title">Valores</h2>
-        <div class="card-content">
+        <div class="card-content about--card-valores">
           <div>
             <p>Responsabilidad</p>
             <p>Honestidad</p>
             <p>Respeto</p>
-            <p>Paciencia</p>
           </div>
 
           <div>
+            <p>Paciencia</p>
             <p>Puntualidad</p>
+          </div>
+
+          <div>
             <p>Iniciativa</p>
             <p>Lealtad</p>
             <p>Ética</p>
           </div>
         </div>
+        <img src="./img/illustration-3.png" alt="" class="card-img about--card-img">
       </div>
 
-      <div class="card">
-        <img class="card-img" src="./img/group-team.jpg" alt="">
+      <div class="card about--card-history">
+        <img class="about--card-history__img" src="./img/group-team.jpg" alt="">
         <h2 class="card-title">Historia</h2>
         <p class="card-content">
           Conscientes de la poca automatización y lo tedioso que resulta desempeñar cargos que representan gran trabajo manual y largas horas de oficina, 5 jóvenes con ganas de potenciar la industria nicaragüense, nos reunimos a sacar adelante el país mediante soluciones tecnológicas y no morirnos de hambre.
@@ -261,22 +271,22 @@
     </div>
 
     <div class="footer--section">
-      <a class="footer-navbar-item" href="/" page-target="/" page-component="Home">Inicio</a>
-      <a class="footer-navbar-item" href="/" page-target="/servicios" page-component="Services">Servicios</a>
-      <a class="footer-navbar-item" href="/" page-target="/equipo" page-component="Team">Equipo</a>
-      <a class="footer-navbar-item" href="/" page-target="/acerca" page-component="About">Acerca</a>
+      <a class="footer-navbar-item" href="/" page-target="/" page-component="Home"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Inicio</a>
+      <a class="footer-navbar-item" href="/" page-target="/servicios" page-component="Services"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Servicios</a>
+      <a class="footer-navbar-item" href="/" page-target="/equipo" page-component="Team"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Equipo</a>
+      <a class="footer-navbar-item" href="/" page-target="/acerca" page-component="About"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Acerca</a>
     </div>
 
     <div class="footer--section">
-      <a href="#">Facebook</a>
-      <a href="#">Twitter</a>
-      <a href="#">Instagram</a>
+      <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a>
+      <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a>
+      <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a>
     </div>
 
     <div class="footer--section">
-      <p>dirección</p>
-      <p>vosdaledevs@gmail.com</p>
-      <p>(+505) 89848765</p>
+      <p><i class="fa fa-map-marker" aria-hidden="true"></i> dirección</p>
+      <p><i class="fa fa-at" aria-hidden="true"></i> vosdaledevs@gmail.com</p>
+      <p><i class="fa fa-phone" aria-hidden="true"></i> (+505) 89848765</p>
     </div>
   </footer>
 

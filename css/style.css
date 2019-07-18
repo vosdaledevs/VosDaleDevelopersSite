@@ -21,15 +21,12 @@
 }
 
 html{
-  width: 100vw;
-  overflow-x: hidden;
-  box-sizing: border-box;
   font-family: GoogleSans;
   font-size: 16px;
   line-height: 1.5;
 }
 
-*, *::before, *::after{
+html, body, *, *::before, *::after{
   box-sizing: inherit;
   padding: 0;
   margin: 0;
@@ -50,6 +47,20 @@ img{
   display: block;
 }
 
+textarea{
+  resize: none;
+}
+
+input[type="submit"]{
+  display: block;
+}
+
+i{
+  margin-right: 5px;
+}
+
+.footer-navbar-item i{ color: transparent; }
+.footer-navbar-item:hover i{ color: currentColor; }
 
 /* page-header style's */
 .page-header{
@@ -58,7 +69,7 @@ img{
   position: fixed;
   top: .75rem;
   left: 1.5rem;
-  width: calc(100vw - 3rem);
+  width: calc(100% - 3rem);
   z-index: 1000;
 }
 
@@ -120,9 +131,10 @@ img{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   color: var(--secondary);
+  overflow: hidden;
 }
 .banner-background{
   position: absolute;
@@ -187,11 +199,35 @@ img{
   to{ transform: scale3d(1, 1, 1) rotate(20deg); }
 }
 
-.section-center{
+.page-content{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.section-center{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-form{
+  --padding-form: .5rem .75rem;
+  position: relative;
+  margin: 15rem 0;
+  color: var(--secondary);
+}
+.question-form--background{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 65vw;
+  height: 65vw;
+  transform: translate(-49%, -49%);
+  z-index: -10;
 }
 .form-name{ text-align: center; }
 .form-field-container{
@@ -204,6 +240,22 @@ img{
 }
 .form-field-container--field{
   margin-bottom: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  padding: var(--padding-form);
+}
+
+.question-form input[type="submit"]{
+  background-color: #1C71E6;
+  margin: 0 auto;
+  color: currentColor;
+  padding: var(--padding-form);
+  border-radius: 20px;
+}
+
+input[type="submit"], .form-field-container--field{
+  border: none;
+  outline: none;
 }
 
 .header-section-page{
@@ -212,7 +264,7 @@ img{
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 35vh;
   background: url("../img/background-section.png") no-repeat;
   background-size: cover;
@@ -237,7 +289,8 @@ img{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  width: 100%;
+  padding: 2rem 0;
 }
 
 
@@ -292,7 +345,7 @@ img{
   margin-bottom: 7rem;
 }
 .team-card:nth-child(odd), .team-card:nth-child(even){
-  padding: 1rem 7rem 4rem 7rem;
+  padding: 1rem 9rem 4rem 9rem;
   transform: translate(0);
 }
 .team-card:first-child{ margin-top: 7rem; }
@@ -322,14 +375,65 @@ img{
 }
 
 
+/* about section: rules ajuster */
+.about--card{
+  --padding-img: 3.75rem;
+  --translate-value: 0;
+  height: 8rem;
+  padding: 1rem 1rem !important;
+  transform: translateX(0);
+}
+
+.about--card:nth-child(odd){
+  padding-right: var(--padding-img) !important;
+  transform: translateX(var(--translate-value)) !important;
+}
+.about--card:nth-child(even){
+  padding-left: var(--padding-img) !important;
+  transform: translateX(-var(--translate-value)) !important;
+}
+
+.about--card-img{
+  width: 5.5rem;
+  height: 5.5rem;
+  object-fit: scale-down;
+}
+
+.about--card-valores{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.about--card-history{
+  --padding-img: 0;
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.about--card-history__img{
+  display: block;
+  width: 100%;
+  height: 28.13vw;
+  object-fit: cover;
+}
+.about--card-history .card-title{
+  margin-top: 1rem;
+}
+.about--card-history .card-content{
+  padding: 0 1rem 1rem 1rem;
+}
+
+
 /* Footer Style */
 .footer-content{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  width: 100vw;
-  padding: 1.5rem;
+  width: 100%;
+  padding: 1.5rem 0;
   background-color: var(--primary);
   color: var(--secondary);
 }
