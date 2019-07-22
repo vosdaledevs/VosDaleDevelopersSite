@@ -76,7 +76,7 @@ i{
 .page-header--logo{
   width: 3.4rem;
   height: 3.4rem;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 100px;
   background-color: var(--secondary);
   box-shadow: var(--box-shadow);
@@ -215,47 +215,62 @@ i{
 }
 
 .question-form{
-  --padding-form: .5rem .75rem;
-  position: relative;
-  margin: 15rem 0;
-  color: var(--secondary);
-}
-.question-form--background{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 65vw;
-  height: 65vw;
-  transform: translate(-49%, -49%);
-  z-index: -10;
-}
-.form-name{ text-align: center; }
-.form-field-container{
-  display: flex;
-  flex-direction: column;
-  border: none;
-}
-.form-field-container--label{
-  margin-bottom: .5rem;
-}
-.form-field-container--field{
-  margin-bottom: 2rem;
-  border-radius: 20px;
-  width: 100%;
-  padding: var(--padding-form);
+  --form-primary: #002F73;
+  --form-secondary: #fff;
+  background-color: var(--form-primary);
+  color: var(--form-secondary);
+  text-align: center;
+  padding: 5rem;
+  margin: 7rem 0;
+  border-radius: 1000px;
+  box-shadow: -12em -8em 0 -5em #1C71E6,
+    -15em 7em 0 -12em #1B519E,
+    11em 9em 0 -5em #1C71E6,
+    8em -14em 0 -12em #1B519E,
+    12em -4.5em 0 -7em #FFE44B,
+    -3.5em 12em 0 -7em #FFE44B;
 }
 
-.question-form input[type="submit"]{
-  background-color: #1C71E6;
-  margin: 0 auto;
-  color: currentColor;
-  padding: var(--padding-form);
-  border-radius: 20px;
-}
-
-input[type="submit"], .form-field-container--field{
+input[type="submit"], .form-field-container--field, .form-field-container{
+  display: block;
   border: none;
   outline: none;
+}
+
+.form-field-container{
+  text-align: left;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.form-field-container--label{
+    line-height: 2;
+}
+
+.form-field-container--field{
+  box-sizing: border-box;
+  width: inherit;
+  padding: .5rem .75rem;
+  border-radius: 20px;
+}
+
+.form-field-submit{
+  padding: .55rem 2rem;
+  background-color: #1C71E6;
+  color: var(--form-secondary);
+  border-radius: var(--border-radius-big);
+  margin: 0 auto;
+  transition: box-shadow .5s, background-color .5s, transform .25s;
+  box-shadow: 0 0 10px 0 transparent;
+  transform: scale(1);
+}
+.form-field-submit:hover{
+  background-color: #085DD2;
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, .25);
+}
+
+.form-field-submit:active{
+  transform: scale(.95);
 }
 
 .header-section-page{
@@ -303,6 +318,7 @@ input[type="submit"], .form-field-container--field{
   position: relative;
   padding: var(--padding-top-bottom) var(--padding-left-right);
   width: 50vw;
+  min-height: 8rem;
   margin-bottom: 3rem;
   text-align: center;
   background-color: var(--secondary);

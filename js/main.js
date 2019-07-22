@@ -5,6 +5,20 @@ const navbarItems = document.querySelectorAll('.navbar--item'),
       rootComponent = document.getElementById('page-content');
 
 
+//  list events for components
+const eventsRoutes = {
+  '/': function(){
+    let questionForm = document.getElementById("questionForm"); // form question event
+
+    if(questionForm){ // verify that value is'n null
+      questionForm.addEventListener('submit', e => { // adding submit event to form
+        e.preventDefault();
+      });
+    }
+  }
+};
+
+// FUNCTIONS DECLARATIONS
 function showIconLogo(pathName){
   (pathName === "/") ? document.getElementById('icon-logo').classList.remove("show") : document.getElementById('icon-logo').classList.add("show");
 }
@@ -16,6 +30,9 @@ function changeRouter(e){
   showIconLogo(pathName);
   window.scrollTo({top: 0, behavior: 'smooth'});
   rootComponent.innerHTML = routes[pathName]; // loading component to main container
+  if(eventsRoutes[pathName]){ // loading event for component if exist
+    eventsRoutes[pathName]();
+  }
 
   window.history.pushState(
     {},
@@ -25,6 +42,7 @@ function changeRouter(e){
 }
 
 
+// EVENT ASIGNATION TO NAVBAR-ITEMS
 if(navbarItems){
   navbarItems.forEach(item => {
 
@@ -33,9 +51,10 @@ if(navbarItems){
         _componentName = item.getAttribute('page-component').toLowerCase(),
         _component = document.getElementById(`component__${_componentName}`);
 
+    // saving the component content and route from all templates
     if(_route && _component){
       routes[_route] = _component.innerHTML;
-      _component.remove();
+      _component.remove(); // deleting templates nodes from html and loading to virtual node
     }else{
       console.error(`Navbar Item empty: ${item.textContent}`);
     }
@@ -43,9 +62,10 @@ if(navbarItems){
 
     // Adding events to navba--item's
     item.addEventListener('click', e => {
-      const prev = document.querySelector('.navbar--item.active'),
+      const prev = document.querySelector('.navbar--item.active'), // geting the navbar-item for active section
             next = e.target;
 
+      // updating navbar--item indicator for active item
       if(prev){
         prev.classList.remove('active');
         next.classList.add('active');
@@ -61,6 +81,12 @@ if(navbarItems){
 if(footerNavbarItems){
   footerNavbarItems.forEach(item => {
     item.addEventListener('click', e => {
+      let pageTarget = e.target.getAttribute('page-target'); // get the page-taget value to use in querySelector
+
+      // updating navbar--item indicator for active item
+      document.querySelector('.navbar--item.active').classList.remove('active');
+      document.querySelector(`[page-target="${pageTarget}"]`).classList.add('active');
+
       e.preventDefault();
       changeRouter(e);
     });
@@ -69,11 +95,11 @@ if(footerNavbarItems){
 
 
 (function(){
+  let cookies = { path: '/' };
 
   if([window.location.origin, window.location.origin+'/'].includes(window.location.href)){
     rootComponent.innerHTML = routes['/'];
   }else{
-    let cookies = null;
 
     // getting the URL to access from cookie 'path'
     if(document.cookie){
@@ -81,11 +107,9 @@ if(footerNavbarItems){
         .split(";")
         .map(item => item.split("="))
         .reduce((prev,cur) => { prev[cur[0]] = cur[1].split('%2F').join('/'); return prev; },{});
-    }else{
-      cookies = { path: '/' }
     }
 
-    console.log(cookies);
+    //  loading component node switch cookie value storage
     document.querySelector('.navbar--item.active').classList.remove('active');
     if(cookies['path'] !== '404') {
       rootComponent.innerHTML = routes[cookies['path']];
@@ -94,7 +118,13 @@ if(footerNavbarItems){
       rootComponent.innerHTML = "Error 404; Page not found";
     }
 
-    showIconLogo(cookies['path']);
+    showIconLogo(cookies['path']); // showing or hidden iconLogo switch section page loaded
+
+  }
+
+  if(eventsRoutes[cookies['path']]){ // loading event for component if exist
+    console.log("loaded event");
+    eventsRoutes[cookies['path']]();
   }
 
 })();
