@@ -492,3 +492,18 @@ input[type="submit"], .form-field-container--field, .form-field-container{
 .z-index-100{ z-index: 100; }
 
 .mb-2{ margin-bottom: 2rem; }
+
+.author-info{
+  display: flex;
+  align-items: center;
+  padding-top: .75rem;
+}
+.author-info img{
+  display: inline-block;
+  width: 2.25rem;
+  margin-left: 1rem;
+  object-fit: contain;
+}
+
+
+/*  Responsive media querys  */
