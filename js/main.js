@@ -13,6 +13,40 @@ const eventsRoutes = {
     if(questionForm){ // verify that value is'n null
       questionForm.addEventListener('submit', e => { // adding submit event to form
         e.preventDefault();
+
+        // declarations
+        let ajax = new XMLHttpRequest(),
+            url = new URL(`${window.location.origin}/email.php`),
+            notificator = document.getElementById('form-notificator'),
+            userQuestion = document.forms['questionForm'].elements['userQuestion'].value,
+            userEmail = document.forms['questionForm'].elements['userEmail'].value,
+            data = { userQuestion, userEmail };
+
+          ajax.open('POST', url); // setting the type petition and the url to send
+          ajax.setRequestHeader('Content-Type', 'application/json'); // indicating type transferency
+
+          notificator.classList.add('active'); // showing indicator
+
+        if(userEmail.length > 0 && userQuestion.length > 0) {
+
+          ajax.addEventListener('load', x => { // event to execute after send email
+            notificator.innerHTML = "!Pregunta enviada con éxito!";
+            e.target.reset(); // restart form values
+
+            setTimeout(function () { // hiddign notificator
+              notificator.classList.remove('active');
+              notificator.innerHTML = "Enviando pregunta<span>.</span><span>.</span><span>.</span>";
+            }, 3000);
+          });
+
+          ajax.send(JSON.stringify(data)); // sending data
+        }else{
+          notificator.innerHTML = "Antes de enviar. <br> !Completa todos los campos del formulario!";
+          setTimeout(function () { // hiddign notificator
+            notificator.classList.remove('active');
+            notificator.innerHTML = "Enviando pregunta<span>.</span><span>.</span><span>.</span>";
+          }, 2000);
+        }
       });
     }
   }

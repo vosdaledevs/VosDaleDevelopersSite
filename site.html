@@ -70,18 +70,18 @@
 
     <section class="section-center content-section-page">
       <form action="#" method="post" class="question-form" id="questionForm">
-<!--        <img class="question-form&#45;&#45;background" src="./img/formulario.svg" alt="">-->
+        <div class="form-notificator" id="form-notificator">Enviando pregunta<span>.</span><span>.</span><span>.</span></div>
         <h2 class="form-name">¿Preguntas?</h2>
         <h3 class="form-name mb-2">¡Vos Dale!</h3>
 
         <fieldset class="form-field-container">
           <label class="form-field-container--label" for="question-textfield">Envíanos tu pregunta</label>
-          <textarea class="form-field-container--field" name="question" id="question-textfield" cols="10" rows="5" maxlength="255" wrap="soft" ></textarea>
+          <textarea class="form-field-container--field" name="userQuestion" id="question-textfield" cols="10" rows="5" maxlength="255" wrap="soft" ></textarea>
         </fieldset>
 
         <fieldset class="form-field-container">
           <label class="form-field-container--label" for="email-textfield">¿A qué correo quieres que enviemos la respuesta?</label>
-          <input class="form-field-container--field" type="email" name="email" id="email-textfield">
+          <input class="form-field-container--field" type="email" name="userEmail" id="email-textfield">
         </fieldset>
 
         <input class="form-field-submit" type="submit" value="Enviar">
