@@ -309,8 +309,9 @@ input[type="submit"], .form-field-container--field, .form-field-container{
   position: relative;
   width: 100%;
   height: 35vh;
-  background: url("../img/background-section.png") no-repeat;
-  background-size: cover;
+  background: url("../img/background-section.png") no-repeat center center;
+  text-align: center;
+  padding: 1rem;
 }
 .header-section-page--background{
   position: absolute;
@@ -508,7 +509,7 @@ input[type="submit"], .form-field-container--field, .form-field-container{
 
 /*  Responsive media querys  */
 /* SMARTPHONE DEVICE */
-@media (min-width: 320px) and (max-width: 768px){
+@media (max-width: 768px){
   .page-header{
     background-color: var(--secondary);
     top: 0;
@@ -555,7 +556,6 @@ input[type="submit"], .form-field-container--field, .form-field-container{
   }
 
   .header-section-page{
-    background-size: 100%;
     height: 10vh;
   }
   .header-section-page--title{
@@ -564,10 +564,36 @@ input[type="submit"], .form-field-container--field, .form-field-container{
 
   .question-form{
     font-size: 12px;
+    padding: 3em;
+    margin: 3rem 0;
+    box-shadow: -10em -7em 0 -8em #1C71E6,
+    -15em 7em 0 -12em #1B519E,
+    11em 9em 0 -8em #1C71E6,
+    7em -10em 0 -10em #1B519E,
+    12em -4.5em 0 -7em #FFE44B,
+    -5em 10em 0 -7em #FFE44B;
   }
 
   .card{
     font-size: 12px;
+  }
+}
+
+@media (max-width: 460px){
+  .page-header--navbar{
+    width: 80%;
+    font-size: 0.85rem;
+  }
+
+  .banner-tooltip{
+    left: 50%;
+    width: 120px;
+    font-size: .55rem;
+  }
+
+  .logo-lema{
+    width: 70vw;
+    height: 33vw;
   }
 }
 
@@ -601,7 +627,7 @@ input[type="submit"], .form-field-container--field, .form-field-container{
 }
 
 /*  SMARTPHONE AND TABLE TO REDUCE CODE */
-@media (min-width: 320px) and (max-width: 768px), (min-width: 769px) and (max-width: 1024px){
+@media (max-width: 768px), (min-width: 769px) and (max-width: 1024px){
   .card{
     --padding-img: 0;
     --translate-value: 0;
