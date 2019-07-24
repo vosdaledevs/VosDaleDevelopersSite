@@ -19,16 +19,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){ // verify the connection method
     $mail->Host = 'smtp.gmail.com';
     $mail->Port = 587;
     $mail->SMTPSecure = 'tls';
-    $mail->Username = 'user_email'; // change the user email
-    $mail->Password = 'user_password'; //change the user password
-    $mail->setFrom($json->userEmail, 'Usuario sitio');
+    $mail->Username = 'vosdaledevs@gmail.com'; // change the user email
+    $mail->Password = 'email_password'; //change the user password
+    $mail->setFrom('algun@correo.com', 'Pregunta usuario sitio web');
     //$mail->addReplyTo('reply-box@hostinger-tutorials.com', 'Your Name');
-    $mail->addAddress('haroldesptru@gmail.com', 'Admin Site');
-    $mail->Subject = 'Pregunta | vosdaledevelopment.website';
+    $mail->addAddress('vosdaledevs@gmail.com', 'Admin Site');
+    $mail->Subject = 'Pregunta | vosdaledevps.website';
     //$mail->msgHTML(file_get_contents('message.html'), __DIR__);
     //$mail->AltBody = 'This is a plain text message body';
     //$mail->addAttachment('test.txt');
-    $mail->Body = $json->userQuestion;
+    $mail->Body = "correo de: $json->userEmail \n\nContenido:\n$json->userQuestion";
 
     if (!$mail->send()) {
         echo 'Mailer Error: ' . $mail->ErrorInfo;

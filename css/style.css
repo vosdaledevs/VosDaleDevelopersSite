@@ -302,6 +302,7 @@ input[type="submit"], .form-field-container--field, .form-field-container{
 }
 
 .header-section-page{
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -309,9 +310,9 @@ input[type="submit"], .form-field-container--field, .form-field-container{
   position: relative;
   width: 100%;
   height: 35vh;
-  background: url("../img/background-section.png") no-repeat center center;
+  background: url("../img/background-section.png") no-repeat;
+  background-size: cover;
   text-align: center;
-  padding: 1rem;
 }
 .header-section-page--background{
   position: absolute;
@@ -557,6 +558,9 @@ input[type="submit"], .form-field-container--field, .form-field-container{
 
   .header-section-page{
     height: 10vh;
+    padding: 1rem;
+    background-size: initial;
+    background-position: center;
   }
   .header-section-page--title{
     font-size: 1.5rem;
@@ -575,14 +579,15 @@ input[type="submit"], .form-field-container--field, .form-field-container{
   }
 
   .card{
-    font-size: 12px;
+    font-size: 1rem;
   }
+
 }
 
 @media (max-width: 460px){
   .page-header--navbar{
     width: 80%;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 
   .banner-tooltip{
