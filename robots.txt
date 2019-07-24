@@ -1,0 +1,13 @@
+# Grupo 1
+User-agent: Vendor
+Disallow: /vendor/
+
+#Grupo 2
+User-agent: Src
+Disallow: /src/
+
+# Grupo 2
+User-agent: *
+Allow: /
+
+Sitemap: https://vosdaledevelopers.com/sitemap.xml

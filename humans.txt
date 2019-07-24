@@ -1,0 +1,9 @@
+/ * Vos Dale Developers - https://vosdaledevelopers.com * /
+
+/ * EQUIPO * /
+Diseño y Desarrollo: Harold Espinoza
+Contacto: https://hespinoza01.github.io/
+Twitter: @hespinoza__
+Ubicación: Managua, Nicaragua
+
+/* GRACIAS */
